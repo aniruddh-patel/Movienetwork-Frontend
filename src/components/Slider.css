@@ -1,0 +1,49 @@
+.slider-container {
+    position: relative;
+    width: 85%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .slider {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+  
+  .slider-wrapper > .card {
+    flex: 0 0 auto;
+  }
+  
+  .scroll-button {
+    background: none;
+    border: none;
+    font-size: 4rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: white;
+    /* background-color: white; */
+  }
+  
+  .scroll-button.left {
+    left: -50px;
+  }
+  
+  .scroll-button.right {
+    right: -50px;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      min-width: 200px;
+    }
+  }
+  

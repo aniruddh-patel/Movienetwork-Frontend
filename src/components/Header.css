@@ -1,0 +1,66 @@
+/* header */
+.header {
+    width: 100%;
+    padding: 10px 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    background-color: rgb(10, 10, 26);
+}
+
+.logo {
+    width: 5%;
+    border-radius: 5px;
+}
+.links img{
+    height: 23px;
+    margin: 0 5px;
+    filter: invert(100);
+}
+.nav{
+    /* min-width: 43%; */
+}
+.pages {
+    /* border: 1px solid rgb(255, 255, 255); */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.pages li {
+    display: inline-flex;
+    margin: 0 20px 0 20px;
+    background: none;
+    font-weight: bold;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    background: transparent;
+}
+.pages a li:hover{
+    font-size: 22px;
+    transition: 100ms;
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 0 5px;
+    filter: invert(100);
+}
+
+.signin_button {
+    padding: 10px;
+    font-size: 18px;
+    color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bolder;
+    border: none;
+}
+.signin_button:hover{
+    background-color: #ff5757;
+    color: white;
+}

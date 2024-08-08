@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.parts {
+  background-color: rgb(10, 10, 26);
+  height: 350px;
+  width: 100%;
+  /* margin-bottom: 5px; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+.parts h1{
+  align-self:flex-start;
+  margin-left:7%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.part1 {
+  background-color: rgb(10, 10, 26);
+  height: 600px;
+  width: 100%;
+  margin-bottom: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #ffffff;
+}
+
+.mainbody {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.inner-mainbox2 {
+  margin-bottom: .5px;
+  height: 100px;
+  width: 81%;
+  /* border:1px solid crimson; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search button {
+  width: 100px;
+  height: 50px;
+  font-size: 25px;
+  font-weight: bolder;
+  background: rgb(37, 37, 74);
+  border-top-right-radius: 30px;
+  color: #ffffff;
+  border-bottom-right-radius: 30px;
+  border: 2px solid rgb(255, 255, 255);
+
+}
+
+.search button:hover {
+  background-color: #ff5757;
+}
+
+.part1 h1 {
+  font-size: 48px;
+}
+
+.part1 p {
+  font-size: 25px;
+}
+
+.part1 h3 {
+  font-size: 20px;
+}
+
+.search input {
+  width: 380px;
+  height: 48px;
+  font-size: 18px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-style: none;
+  border: 2px solid rgb(255, 255, 255);
+  padding: 0 20px;
+  font-weight: 600;
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(10, 10, 26);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(37, 37, 74);
+  border-radius: 6px;
+  border: 1px solid black;
 }
