@@ -1,0 +1,59 @@
+.page_404 {
+    /* padding: 40px 0; */
+    background: rgb(0, 0, 8);
+    font-family: 'Arvo', serif;
+  }
+  
+  .containerr {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .col {
+    max-width:100%;
+    text-align: center;
+  }
+  
+  .four_zero_four_bg {
+    background-image: url(/src/images/icons/gif404.gif);
+    height: 70vh;
+    width: 80vw;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .four_zero_four_bg h1 {
+    font-size: 100px;
+    color: #000000;
+    margin-top: -380px;
+  }
+  
+  
+  .contant_box_404 h3 {
+    font-size: 24px;
+    color: white;
+  }
+  
+  .contant_box_404 p {
+    font-size: 18px;
+    color: white;
+    padding-bottom: 10px;
+  }
+  
+  .link_404 {
+    color: #fff;
+    padding: 10px 20px;
+    background: #ff5757;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .link_404:hover{
+    background: #c12c2c;
+  }
+  

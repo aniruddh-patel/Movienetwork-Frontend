@@ -11,9 +11,10 @@
     background-color: rgb(0, 0, 8);
 }
 
-.logo {
-    width: 5%;
-    border-radius: 5px;
+.logoo {
+    height: 200%;
+    margin-top: 20px;
+    filter: invert(100%);
 }
 .links img{
     height: 23px;

@@ -9,7 +9,7 @@ import support from '../images/icons/support.png'
 export const Header = () => {
   return (
     <div className="header">
-      <img className="logo" src={logo} alt="art" />
+      <img className="logoo" src={logo} alt="art" />
       <div className="nav">
         <ul className="pages">
           <a href="/" className="links"><li><img src={home} />Home</li></a>

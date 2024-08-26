@@ -56,7 +56,97 @@
     background-color: rgba(8, 8, 8, 0.549);
     height: 100%;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.movie-content {
+    font: bolder;
+    min-height: 30px;
+    color: #ff5757;
+    margin: 5px 5px;
+    margin-left: 50px;
+
+}
+.movie-content div{
+    font: bolder;
+    min-height: 30px;
+    color: #ff5757;
+    margin: 5px 5px;
+    margin-left: 50px;
+}
+.movie-content h2{
+    font: bolder;
+    min-height: 30px;
+    color: #ff5757;
+    margin: 5px 5px;
+    margin-left: 50px;
+}
+.movie-content h3{
+    font: bolder;
+    min-height: 30px;
+    color: #ff5757;
+    margin: 5px 5px;
+    margin-left: 50px;
+}
+.movie-content h1{
+    font-size: 30px;
+    min-height: 30px;
+    color: #ff5757;
+    margin: 5px 5px;
+    margin-left: 50px;
+}
+.movie-content span{
+    color: white;
+}
+.imdb{
+    color: rgb(255, 187, 0);
+}
+
+.genres span {
+    background-color: rgba(73, 73, 73, 0.805);
+    margin: 0 5px 0 0;
+    padding: 10px;
+    line-height: 48px;
+    border-radius: 48px;
+    min-width: 100px;
+    display: inline;
+    font-size: large;
+    font-weight: bolder;
+}
+.rentbutton, .savebutton{
+    line-height: 25px;
+    border-radius: 25px;
+    min-width: 100px;
+    font-size: larger;
+    padding: 10px;
+    margin: 0 5px 0 0;
+
+    border: 1px solid white;
+    background-color:#ff5757 ;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+}
+.rentbutton:hover, .savebutton:hover{
+    transform: scale(0.9);
+}
+.likebutton{
+    font-size: 30px;
+    background: none;
+    /* padding: 10px; */
+    border: none;
+    cursor: pointer;
+}
+.likebutton:hover{
+    transform:  rotate(360deg);
+    transition: transform .7s ease-in-out
+}
+
+
+
+
 
 .movie-deatil2 {
     /* border: 2px solid rgb(255, 255, 255); */
@@ -67,10 +157,17 @@
     align-items: center;
     border-radius: 20px;
     padding: 20px 0;
+    
 }
-.movie-deatil2 h1, .movie-deatil2 h3{
-    margin:5px 20px;
+
+.movie-deatil2 h1{
+    margin: 5px 20px;
     align-self: flex-start;
+}
+.movie-deatil2 h3 {
+    margin: 5px 20px;
+    align-self: flex-start;
+    color: white;
 }
 
 .trailer-box {
@@ -86,6 +183,7 @@
     height: 400px;
     width: 80%;
     display: flex;
+    font-weight: bolder;
     justify-content: center;
 
 }
@@ -100,39 +198,44 @@
     justify-content: center;
     background-color: rgba(8, 8, 8, 0.549);
 }
-.cast div{
+
+.cast div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    margin-left: 10%;
 }
-.cast h4{
+
+.cast h4 {
     /* height: 50px; */
-    width: 60%;
-    background-color: rgba(6, 6, 6, 0.49);
-    margin: 3px;
+    min-width: 20%;
+    background-color: rgba(6, 6, 6, 0.488);
+    margin: 3px 10px;
     text-align: justify;
     padding: 15px 0 15px 10px;
     border-radius: 10px;
-    border: 1px solid white;
-
-
+    line-height: 20px;
+    border-radius: 20px;
 }
-.cast h2{
-    padding-left: 20px;
+
+.cast h2 {
+    /* padding-left: 20px; */
     padding-bottom: 10px;
+    margin-left: 10%;
+    color: #ff5757;
 }
-.cast span{
+
+.cast h1 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: antiquewhite;
+    background-color: rgba(151, 146, 140, 0.355);
 }
 
 
 .crew {
     height: 80%;
-    width: 50%;
+    width: 40%;
     border-radius: 20px;
     margin: 0 5px;
     display: flex;
@@ -140,28 +243,34 @@
     justify-content: center;
     background-color: rgba(8, 8, 8, 0.549);
 }
-.crew span{
+
+.crew span {
     width: 70px;
-    /* height: 50px; */
-    
+    font-size: larger;
+
 }
 
-.crew div{
+.crew div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    margin-left: 10%;
+    
 }
-.crew h4{
-    width: 60%;
-    background-color: rgba(6, 6, 6, 0.49);
-    margin: 3px;
+
+.crew h4 {
+    min-width: 20%;
+    background-color: rgba(6, 6, 6, 0.488);
+    margin: 3px 15px;
     text-align: justify;
-    padding: 15px 0 15px 10px;
+    padding: 15px 10px 15px 10px;
     border-radius: 10px;
-    border: 1px solid white;
+    line-height: 20px;
+    border-radius: 20px;
 }
-.crew h2{
-    padding-left: 20px;
+
+.crew h2 {
     padding-bottom: 10px;
+    margin-left: 10%;
+    color: #ff5757;
 }
