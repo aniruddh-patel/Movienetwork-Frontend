@@ -1,0 +1,34 @@
+/* Streampage.css */
+
+.video-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 8); /* Dark background for better video visibility */
+  }
+  
+  .react-player-wrapper {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+  }
+  
+  .react-player-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent controls background */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .react-player-wrapper:hover .react-player-controls {
+    opacity: 1; /* Show controls on hover */
+  }
+  

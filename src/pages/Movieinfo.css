@@ -69,45 +69,51 @@
     margin-left: 50px;
 
 }
-.movie-content div{
+
+.movie-content div {
     font: bolder;
     min-height: 30px;
     color: #ff5757;
     margin: 5px 5px;
     margin-left: 50px;
 }
-.movie-content h2{
+
+.movie-content h2 {
     font: bolder;
     min-height: 30px;
     color: #ff5757;
     margin: 5px 5px;
     margin-left: 50px;
 }
-.movie-content h3{
+
+.movie-content h3 {
     font: bolder;
     min-height: 30px;
     color: #ff5757;
     margin: 5px 5px;
     margin-left: 50px;
 }
-.movie-content h1{
+
+.movie-content h1 {
     font-size: 30px;
     min-height: 30px;
     color: #ff5757;
     margin: 5px 5px;
     margin-left: 50px;
 }
-.movie-content span{
+
+.movie-content span {
     color: white;
 }
-.imdb{
+
+.imdb {
     color: rgb(255, 187, 0);
 }
 
 .genres span {
-    background-color: rgba(73, 73, 73, 0.805);
+    background-color: #ffffff18;
     margin: 0 5px 0 0;
-    padding: 10px;
+    padding: 5px;
     line-height: 48px;
     border-radius: 48px;
     min-width: 100px;
@@ -115,55 +121,58 @@
     font-size: large;
     font-weight: bolder;
 }
-.rentbutton, .savebutton{
+
+.rentbutton,
+.savebutton {
     line-height: 25px;
     border-radius: 25px;
     min-width: 100px;
     font-size: larger;
-    padding: 10px;
+    padding: 8px;
     margin: 0 5px 0 0;
 
     border: 1px solid white;
-    background-color:#ff5757 ;
+    background-color: #ff5757;
     color: white;
-    font-weight: 900;
+    font-weight: bolder;
     cursor: pointer;
 }
-.rentbutton:hover, .savebutton:hover{
+
+.rentbutton:hover,
+.savebutton:hover {
     transform: scale(0.9);
 }
-.likebutton{
+
+.likebutton {
     font-size: 30px;
     background: none;
     /* padding: 10px; */
     border: none;
     cursor: pointer;
 }
-.likebutton:hover{
-    transform:  rotate(360deg);
+
+.likebutton:hover {
+    transform: scale(1.5);
     transition: transform .7s ease-in-out
 }
 
-
-
-
-
 .movie-deatil2 {
     /* border: 2px solid rgb(255, 255, 255); */
-    width: 80%;
+    width: 75%;
     height: auto;
     margin-top: 10px;
     background-color: rgba(8, 8, 8, 0.549);
     align-items: center;
     border-radius: 20px;
     padding: 20px 0;
-    
+
 }
 
-.movie-deatil2 h1{
+.movie-deatil2 h1 {
     margin: 5px 20px;
     align-self: flex-start;
 }
+
 .movie-deatil2 h3 {
     margin: 5px 20px;
     align-self: flex-start;
@@ -174,9 +183,9 @@
     height: 500px;
     width: 60%;
     margin: 30px 0;
-    background-color: rgba(3, 10, 19, 0.434);
+    /* background-color: rgba(3, 10, 19, 0.434); */
     border: 1px solid rgb(255, 255, 255);
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 .castandcrew {
@@ -212,7 +221,7 @@
     background-color: rgba(6, 6, 6, 0.488);
     margin: 3px 10px;
     text-align: justify;
-    padding: 15px 0 15px 10px;
+    padding: 15px 10px 15px 10px;
     border-radius: 10px;
     line-height: 20px;
     border-radius: 20px;
@@ -255,7 +264,7 @@
     flex-direction: row;
     align-items: center;
     margin-left: 10%;
-    
+
 }
 
 .crew h4 {
@@ -273,4 +282,17 @@
     padding-bottom: 10px;
     margin-left: 10%;
     color: #ff5757;
+}
+
+.loading-div {
+    width: 100%;
+    height: 85vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.loading-div img {
+    width: 10%;
+    height: auto;
 }

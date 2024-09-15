@@ -1,15 +1,54 @@
 .card {
-    min-width: 150px;
-    height: 220px;
+    width: 180px;
+    height: 280px;
     margin: 10px;
-    padding: 20px;
-    background: #929ad3bb;
-    border-radius: 10px;
+    background: #0e112dd3;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s;
+  }
+  .card h3, .card p{
+    padding-left: 5px;
+    overflow-x:hidden;
+    text-wrap: nowrap;
   }
   
   .card:hover {
     transform: scale(1.05);
   }
   
+  .card-image{
+    height: 90%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .shimmer-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shimmer-image {
+    width: 180px;
+    height: 280px;
+    background: linear-gradient(90deg, #001f3f 25%, #012b57 50%, #001f3f 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.shimmer-text {
+    width: 60%;
+    height: 20px;
+    background: linear-gradient(90deg, #001f3f 25%, #012e5e 50%, #001f3f 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}

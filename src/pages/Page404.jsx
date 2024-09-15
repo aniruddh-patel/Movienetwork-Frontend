@@ -1,5 +1,6 @@
 import React from 'react';
-import './Page404.css'; // Assuming you saved the CSS in a file named Page404.css
+import './Page404.css';
+import { Link } from 'react-router-dom';
 
 const Page404 = () => {
   return (
@@ -13,7 +14,7 @@ const Page404 = () => {
             <div className="contant_box_404">
               <h3 className="h2">Look like you're lost</h3>
               <p>The page you are looking for is not available!</p>
-              <a href="/" className="link_404">Go to Home</a>
+              <Link to="/" className="link_404">Go to Home</Link>
             </div>
           </div>
         </div>
