@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { Context } from "..";
 
 export const Header = () => {
-  const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(Context);
+  const { isAuthenticated , setIsAuthenticated, setUser } = useContext(Context);
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -37,7 +37,7 @@ export const Header = () => {
       <div className="nav">
         <ul className="pages">
           <Link to="/" className="links"><li><img src={home} />Home</li></Link>
-          <Link href="/" className="links"><li><img src={collection} />Collection</li></Link>
+          <Link to="/collection" className="links"><li><img src={collection} />Collection</li></Link>
           <Link to="/profile"className="links"><li><img src={about} />Profile</li></Link>
           <Link to="/contactus" className="links"><li><img src={support} />Contact Us</li></Link>
         </ul>

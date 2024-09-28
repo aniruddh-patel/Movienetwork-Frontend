@@ -38,7 +38,7 @@ const Profile = () => {
       <img src={noData} alt="No Data" className="no-data-img" />
       <p>No Movie available</p>
       <br />
-      <Link to="/" className="link_profile">
+      <Link to="/collection" className="link_profile">
         Explore Collection
       </Link>
     </div>
@@ -66,9 +66,7 @@ const Profile = () => {
           <h3>{userData.phone_number || "N/A"}</h3>
           <div className="genres">
             {userData.genre.map((genre, index) => (
-              <span key={index}>
-                {genre}
-              </span>
+              <span key={index}>{genre}</span>
             ))}
           </div>
         </div>
@@ -99,15 +97,18 @@ const Profile = () => {
         {activeTab === "wishlist" && (
           <div className="wishlist">
             {userData.wishlist.length > 0
-              ? userData.wishlist.map((movie) => (
-                  <Moviecard
-                    key={movie.movie_id}
-                    title={movie.title}
-                    genre={movie.genre}
-                    poster_url={movie.poster_url}
-                    onClick={() => handleMovieClick(movie.movie_id)}
-                  />
-                ))
+              ? userData.wishlist
+                  .slice() // Create a shallow copy of the array to avoid mutating the original array
+                  .reverse() // Reverse the order of the array
+                  .map((movie) => (
+                    <Moviecard
+                      key={movie.movie_id}
+                      title={movie.title}
+                      genre={movie.genre}
+                      poster_url={movie.poster_url}
+                      onClick={() => handleMovieClick(movie.movie_id)}
+                    />
+                  ))
               : renderNoData()}
           </div>
         )}
@@ -115,15 +116,18 @@ const Profile = () => {
         {activeTab === "rented" && (
           <div className="rented-movies">
             {userData.current_rented_movies.length > 0
-              ? userData.current_rented_movies.map((movie) => (
-                  <Moviecard
-                    key={movie.movie_id}
-                    title={movie.title}
-                    genre={movie.genre}
-                    poster_url={movie.poster_url}
-                    onClick={() => handleMovieClick(movie.movie_id)}
-                  />
-                ))
+              ? userData.current_rented_movies
+                  .slice() // Create a shallow copy of the array to avoid mutating the original array
+                  .reverse() // Reverse the order of the array
+                  .map((movie) => (
+                    <Moviecard
+                      key={movie.movie_id}
+                      title={movie.title}
+                      genre={movie.genre}
+                      poster_url={movie.poster_url}
+                      onClick={() => handleMovieClick(movie.movie_id)}
+                    />
+                  ))
               : renderNoData()}
           </div>
         )}

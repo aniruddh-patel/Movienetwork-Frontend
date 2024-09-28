@@ -24,12 +24,37 @@ const Carousel3D = () => {
   useEffect(() => {
     const carousel = document.querySelector('.carousel');
     let angle = 0;
-    const interval = setInterval(() => {
-      angle -= 45;
-      carousel.style.transform = `rotateY(${angle}deg)`;
-    }, 3000);
+    let interval;
 
-    return () => clearInterval(interval);
+    const startCarousel = () => {
+      interval = setInterval(() => {
+        angle -= 45;
+        carousel.style.transform = `rotateY(${angle}deg)`;
+      }, 3000);
+    };
+
+    const stopCarousel = () => {
+      clearInterval(interval);
+    };
+
+    // Start carousel initially
+    startCarousel();
+
+    // Handle visibility change to pause/resume the carousel
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        stopCarousel(); // Stop when tab is inactive
+      } else if (document.visibilityState === 'visible') {
+        startCarousel(); // Resume when tab is active
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
   }, []);
 
   return (

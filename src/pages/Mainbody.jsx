@@ -4,7 +4,6 @@ import Carousel3D from "../components/Carousel3D";
 import Slider from "../components/Slider";
 import { toast } from "react-toastify";
 
-
 const Mainbody = () => {
   const [movies, setMovies] = useState({
     actionMovies: [],
@@ -85,35 +84,47 @@ const Mainbody = () => {
         <br />
       </div> */}
       <div className="parts">
-        <h1>Action</h1>
+        <h1>
+          <i className="fas fa-fist-raised"></i> Action
+        </h1>
         <Slider movies={movies.actionMovies} startDelay={1600} />
         <br />
-      </div>
+      </div><br />
       <div className="parts">
-        <h1>Comedy</h1>
+        <h1>
+          <i className="fas fa-laugh-squint"></i> Comedy
+        </h1>
         <Slider movies={movies.comedyMovies} startDelay={2300} />
         <br />
-      </div>
+      </div><br />
       <div className="parts">
-        <h1>Love</h1>
+        <h1>
+          <i className="fas fa-heart"></i> Love
+        </h1>
         <Slider movies={movies.loveMovies} startDelay={4200} />
         <br />
-      </div>
+      </div><br />
       <div className="parts">
-        <h1>Biography</h1>
+        <h1>
+          <i className="fas fa-user"></i> Biography
+        </h1>
         <Slider movies={movies.biographyMovies} startDelay={300} />
         <br />
-      </div>
+      </div><br />
       <div className="parts">
-        <h1>Horror</h1>
+        <h1>
+          <i className="fas fa-ghost"></i> Horror
+        </h1>
         <Slider movies={movies.horrorMovies} startDelay={1500} />
         <br />
-      </div>
+      </div><br />
       <div className="parts">
-        <h1>Mystery</h1>
+        <h1>
+          <i className="fas fa-question-circle"></i> Mystery
+        </h1>
         <Slider movies={movies.mysteryMovies} startDelay={2300} />
         <br />
-      </div>
+      </div><br />
     </div>
   );
 };

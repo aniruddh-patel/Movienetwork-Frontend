@@ -22,7 +22,7 @@ const SignIn = () => {
           'Content-Type': 'application/json',
         },
         credentials:'include',
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: email.toLowerCase(), password }),
       });
       const result = await response.json();
       if (response.ok) {

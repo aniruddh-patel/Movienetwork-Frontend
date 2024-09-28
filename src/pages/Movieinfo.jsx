@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./Movieinfo.css";
 import empty from "../images/icons/emptystar.png";
 import star from "../images/icons/star.png";
 import loadingimg from "../images/icons/loading.gif";
 import { toast } from "react-toastify";
+import { Context } from "..";
 
 const Movieinfo = () => {
   const { movie_id } = useParams();
@@ -12,6 +13,7 @@ const Movieinfo = () => {
   const [likes, setLikes] = useState(0);
   const [presignedUrl, setPresignedUrl] = useState("");
   const navigate = useNavigate();
+  const { user } = useContext(Context);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -119,11 +121,118 @@ const Movieinfo = () => {
     return [...filledStars, ...emptyStars];
   };
 
-  const handleRentClick = () => {
-    // Logic to handle the renting of a movie (could be another API call)
-    toast.info("Renting functionality is not implemented yet.");
-  };
+  const handleRentClick = async () => {
+    try {
+      const response = await fetch(
+        "https://d13n7tjnve.execute-api.us-east-1.amazonaws.com/dev/order",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ movie_id: movie_id }),
+        }
+      );
 
+      if (!response.ok) {
+        throw new Error("Failed to create payment order");
+      }
+
+      const { order_id, amount, key } = await response.json();
+
+      const options = {
+        key: key,
+        amount: amount,
+        currency: "INR",
+        name: "MovieNetwork",
+        description: "Movie rental payment",
+        order_id: order_id,
+        handler: async function (response) {
+          const verifyResponse = await fetch(
+            "https://d13n7tjnve.execute-api.us-east-1.amazonaws.com/dev/verifypay",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              credentials: "include",
+              body: JSON.stringify({
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_signature: response.razorpay_signature,
+                movie_id: movie_id,
+              }),
+            }
+          );
+
+          if (!verifyResponse.ok) {
+            throw new Error("Payment verification failed");
+          }
+
+          const verifyData = await verifyResponse.json();
+          console.log(verifyData);
+          if (verifyData.success) {
+            setPresignedUrl(verifyData.message);
+            toast.success("Payment successful! You can now stream the movie.");
+          } else {
+            toast.error("Payment Failed. Please try again.");
+            navigate(`/movieinfo/${movie_id}`);
+          }
+        },
+        prefill: {
+          name: `${user.username}`,
+          email: `${user.email}`,
+        },
+        theme: {
+          color: "#000064",
+        },
+      };
+
+      const razorpayInstance = new window.Razorpay(options);
+      razorpayInstance.open();
+    } catch (error) {
+      console.error("Error in payment initiation:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
+  const handleWishlistClick = async () => {
+    try {
+      const response = await fetch(
+        "https://d13n7tjnve.execute-api.us-east-1.amazonaws.com/dev/wishlist",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", 
+          body: JSON.stringify({
+            movie_id: movie_id,
+            title: movie.title,
+            poster_url: movie.poster_url,
+          }),
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to add movie to wishlist");
+      }
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        toast.success("Movie added to wishlist!");
+      } else {
+        toast.error("Failed to add movie to wishlist.");
+      }
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+      toast.error("Something went wrong. Please try again.");
+    }
+  };
+  
   const handleWatchClick = () => {
     if (presignedUrl) {
       navigate("/stream", {
@@ -165,31 +274,32 @@ const Movieinfo = () => {
           <h2>{renderStars(movie.rating)}</h2>
 
           <h3 className="price">
-            Price: <span>${movie.price}</span>
+            Price: <span style={{ margin: '0 1em 0 0' }}>₹{movie.price}</span>{'    '}Time: <span>{`${Math.floor(movie.duration / 60)} hr ${movie.duration % 60} min`}</span>
           </h3>
           <h3 className="year">
             Year: <span>{new Date(movie.release_date).getFullYear()}</span>{" "}
           </h3>
           <h2 className="imdb">
-            IMDB: <span>{movie.rating}</span>
+            imDb : <span>{movie.rating}</span>
           </h2>
           <h3 className="Likes">
             Likes: <span>{likes}</span>
+            <button className="likebutton" onClick={updateLikes}>
+              👍
+            </button>
           </h3>
           <div className="button-Group">
-            {/* Conditionally show the button based on the presence of presigned URL */}
             {presignedUrl ? (
-              <button className="savebutton" onClick={handleWatchClick}>
-                Watch Now
+              <button className="rentbutton" onClick={handleWatchClick}>
+                <i className="fas fa-play"></i> Play
               </button>
             ) : (
               <button className="rentbutton" onClick={handleRentClick}>
-                Buy a Rent
+                <i class="fas fa-tag"></i> Rent it!
               </button>
             )}
-            <button className="savebutton">Add to Wishlist</button>
-            <button className="likebutton" onClick={updateLikes}>
-              👍
+            <button className="savebutton" onClick={handleWishlistClick}>
+              <i class="fas fa-bookmark"></i> Wishlist
             </button>
           </div>
         </div>

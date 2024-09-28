@@ -14,6 +14,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Context } from '.';
 import { useContext, useEffect } from 'react';
+import Collection from './pages/Collection';
 
 function App() {
   const { setIsAuthenticated, setUser, isAuthenticated } = useContext(Context);
@@ -84,6 +85,7 @@ function App() {
           <Route path="/" element={<Mainbody />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/stream" element={<Streampage />} />
+          <Route path="/collection" element={<Collection />} />
           <Route 
             path="/movieinfo/:movie_id" 
             element={
@@ -129,6 +131,7 @@ function App() {
           pauseOnHover
           draggable
           theme="dark" 
+          closeButton={true}
         />
       </Router>
     </>

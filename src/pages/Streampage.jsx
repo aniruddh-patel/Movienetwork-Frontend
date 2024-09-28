@@ -22,7 +22,7 @@ const Streampage = () => {
           config={{
             file: {
               attributes: {
-                controlsList: 'nodownload', // Disable download option
+                controlsList: 'nodownload',
               },
             },
           }}

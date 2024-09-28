@@ -9,8 +9,8 @@ const SignUp = () => {
     username: '',
     email: '',
     password: '',
-    phone_number: '',  // Changed from 'phone' to 'phone_number'
-    genres: []         // Kept as it is since genres is an array
+    phone_number: '', 
+    genres: []         
   });
 
   const genresOptions = ['Action', 'Horror', 'Romantic', 'Mystery', 'Comedy', 'Biography'];
@@ -51,7 +51,7 @@ const SignUp = () => {
         credentials:'include',
         body: JSON.stringify({
           username: formData.username,
-          email: formData.email,
+          email: formData.email.toLowerCase(),
           password: formData.password,
           phone_number: formData.phone_number,  
           genres: formData.genres
@@ -112,7 +112,7 @@ const SignUp = () => {
             />
             <input
               type="tel"
-              name="phone_number"  // Changed from 'phone' to 'phone_number'
+              name="phone_number" 
               placeholder="Phone Number"
               value={formData.phone_number}
               onChange={handleInputChange}
